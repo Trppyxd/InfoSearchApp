@@ -1,0 +1,83 @@
+﻿<Window x:Class="InfoSearchApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfoSearchApp"
+        mc:Ignorable="d"
+        Title="InfoSearch" Height="450" Width="400">
+
+    <!--Root Grid-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--Menu - Top-->
+
+        <Menu Grid.Column="0">
+            <MenuItem IsEnabled="False" Header="Settings"/>
+        </Menu>
+
+        <!--Main Grid-->
+        <Grid Margin="5" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Column 1-->
+            <StackPanel Grid.Column="0">
+
+                <!--Browser - ComboBox-->
+                <Label Content="Browser" FontWeight="Bold" 
+                       HorizontalContentAlignment="Center"/>
+                <ComboBox IsTabStop="True">
+                    <ComboBoxItem Content="Chrome" IsSelected="True"/>
+                    <ComboBoxItem Content="Firefox"/>
+                </ComboBox>
+
+                <!--Website - ComboBox-->
+                <Label Content="Website" FontWeight="Bold" 
+                       HorizontalContentAlignment="Center"/>
+                <ComboBox x:Name="WebsiteComboBox" IsTabStop="True">
+                    <ComboBoxItem x:Name="GoogleCbi" Content="Google" IsSelected="True"/>
+                    <ComboBoxItem x:Name="YoutubeCbi" Content="Youtube"/>
+                    <ComboBoxItem x:Name="WikiCbi" Content="Wiki"/>
+                    <ComboBoxItem x:Name="WarframeCbi" Content="Wiki Warframe"/>
+
+                </ComboBox>
+
+            </StackPanel>
+
+            <!--Column 2-->
+            <StackPanel Grid.Column="1" Margin="20 0 0 0">
+
+                <!--Search Box-->
+                <StackPanel>
+                    <Label Content="Search Query" FontWeight="Bold"/>
+                    <TextBox x:Name="SearchBox" Padding="2" Margin="0 0 0 5" 
+                             IsTabStop="True"/>
+                </StackPanel>
+
+                <Button x:Name="SearchBtn" HorizontalAlignment="Stretch" Content="Search" Padding="3" 
+                        Click="SearchBtn_OnClick" IsDefault="True"/>
+            </StackPanel>
+
+
+        </Grid>
+
+        <!--StatusBar - Bottom-->
+        <DockPanel Grid.Row="2">
+
+            <StatusBar>
+                <StatusBarItem>
+                    <TextBlock Text="Statusbar"/>
+                </StatusBarItem>
+            </StatusBar>
+
+        </DockPanel>
+    </Grid>
+</Window>
